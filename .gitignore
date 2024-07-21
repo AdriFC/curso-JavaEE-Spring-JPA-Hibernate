@@ -22,3 +22,9 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+.lock,.ini,.snap,.location,.index,.resources,.prefs,.project,.xml,.setup
+.metadata/.lock
+.metadata/
+Servers/
+01-ejemplo_app/.gitignore
+01-ejemplo_app/.settings/

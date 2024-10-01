@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.agenda.model.Contacto;
 
-public interface ContactoService {
+public interface ContactosService {
 	boolean nuevoContacto(Contacto contacto);
 	List<Contacto> obtenerContactos();
 	boolean eliminarContacto(int idContacto);

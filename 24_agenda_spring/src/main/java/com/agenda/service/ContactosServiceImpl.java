@@ -9,7 +9,7 @@ import com.agenda.model.Contacto;
 import com.agenda.repository.ContactosRepository;
 
 @Service
-public class ContactoServiceImpl implements ContactoService {
+public class ContactosServiceImpl implements ContactosService {
 	
 	@Autowired
 	ContactosRepository cRepository;

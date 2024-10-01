@@ -22,14 +22,26 @@ public class ContactosRepositoryImpl implements ContactosRepository {
 
 	@Override
 	public Contacto recuperarContactoEmail(String email) { 
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from contactos where email = ?";
+		List<Contacto> contactos = template.query(sql,
+				(rs, f) -> new Contacto(rs.getInt("idContacto"),
+						rs.getString("nombre"),
+						rs.getString("email"),
+						rs.getInt("telefono")),
+				email);
+		return contactos.size() > 0 ? contactos.get(0):null;
 	}
 
 	@Override
 	public Contacto recuperarContactoId(int idContacto) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from contactos where idContacto = ?";
+		List<Contacto> contactos = template.query(sql,
+				(rs, f) -> new Contacto(rs.getInt("idContacto"),
+						rs.getString("nombre"),
+						rs.getString("email"),
+						rs.getInt("telefono")),
+				idContacto);
+		return contactos.size() > 0 ? contactos.get(0):null;
 	}
 
 	@Override
@@ -40,8 +52,11 @@ public class ContactosRepositoryImpl implements ContactosRepository {
 
 	@Override
 	public List<Contacto> recuperarContactos() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from contactos";
+		return template.query(sql, (rs, f)-> new Contacto(rs.getInt("idContacto"),
+				rs.getString("nombre"),
+				rs.getString("email"),
+				rs.getInt("telefono")));
 	}
 
 }

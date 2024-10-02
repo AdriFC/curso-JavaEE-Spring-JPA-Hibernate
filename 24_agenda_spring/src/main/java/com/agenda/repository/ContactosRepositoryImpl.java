@@ -16,7 +16,7 @@ public class ContactosRepositoryImpl implements ContactosRepository {
 	
 	@Override
 	public void altaContacto(Contacto contacto) {
-		String sql = "insert into (nombre, email, telefono) values(?,?,?)";
+		String sql = "insert into contactos(nombre, email, telefono) values(?,?,?)";
 		template.update(sql, contacto.getNombre(), contacto.getEmail(), contacto.getTelefono());
 	}
 

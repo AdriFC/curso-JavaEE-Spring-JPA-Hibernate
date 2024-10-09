@@ -43,8 +43,30 @@ public class Controller extends HttpServlet {
 			request.getRequestDispatcher("RecuperarAction").include(request, response);
 			url = "cursoActualizar.jsp";
 			break;
+		case "toNuevo":
+			url = "nuevo.html";
+			break;
+		case "toActualizar":
+			request.setAttribute("url", "Controller?op=doBuscarActualizar");
+			url = "buscador.jsp";
+			break;
+		case "toRecuperar":
+			request.setAttribute("url", "Controller?op=doRecuperar");
+			url = "buscador.jsp";
+			break;
+		case "toEliminar":
+			request.setAttribute("url", "Controller?op=doEliminar");
+			url = "buscador.jsp";
+			break;
+		case "toVolver":
+			url = "menu.html";
+			break;
 		}
+			
+		request.getRequestDispatcher(url).forward(request, response);
 		
 	}
-
+		
 }
+
+

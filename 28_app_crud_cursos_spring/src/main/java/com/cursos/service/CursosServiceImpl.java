@@ -25,7 +25,7 @@ public class CursosServiceImpl implements CursosService {
 		if(buscarCurso(curso.getIdCurso()) != null) {
 			repository.actualizarCurso(curso);
 		}
-	}
+	} 
 
 	@Override
 	public void eliminarCurso(int idCurso) {

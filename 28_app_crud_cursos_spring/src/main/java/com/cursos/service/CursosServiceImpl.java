@@ -11,7 +11,7 @@ public class CursosServiceImpl implements CursosService {
 	CursosRepository repository;
 	
 	@Override
-	public void nuecoCurso(Curso curso) {
+	public void nuevoCurso(Curso curso) {
 		repository.altaCurso(curso);
 	}
 

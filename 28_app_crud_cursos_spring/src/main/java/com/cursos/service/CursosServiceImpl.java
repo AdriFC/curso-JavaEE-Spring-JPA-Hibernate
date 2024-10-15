@@ -1,10 +1,12 @@
 package com.cursos.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cursos.model.Curso;
 import com.cursos.repository.CursosRepository;
 
+@Service
 public class CursosServiceImpl implements CursosService {
 
 	@Autowired

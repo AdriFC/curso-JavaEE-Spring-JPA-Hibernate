@@ -3,10 +3,12 @@ package com.cursos.repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cursos.model.Curso;
 
+@Repository
 public class CursosRepositoryImpl implements CursosRepository {
 
 	@PersistenceContext(unitName = "cursosPU")

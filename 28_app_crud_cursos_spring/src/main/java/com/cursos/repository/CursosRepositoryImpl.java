@@ -44,8 +44,8 @@ public class CursosRepositoryImpl implements CursosRepository {
 
 	@Override
 	public List<Curso> cursosDuracion(int duracion) {
-		String jpql = "select c from Curso c where c.duracion<=?1";
-		TypedQuery<Curso> query = em.createQuery(jpql, Curso.class);
+		//String jpql = "select c from Curso c where c.duracion<=?1";
+		TypedQuery<Curso> query = em.createNamedQuery("Curso.findByDuracion", Curso.class);
 		query.setParameter(1, duracion);
 		return query.getResultList();
 	}

@@ -4,10 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="cursos")
+@NamedQuery(name="Curso.findByDuracion", 
+			query="select c from Curso c where c.duracion<=?1")
 public class Curso {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

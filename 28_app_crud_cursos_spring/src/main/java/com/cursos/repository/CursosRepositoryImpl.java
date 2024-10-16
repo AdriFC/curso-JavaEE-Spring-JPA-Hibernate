@@ -3,7 +3,9 @@ package com.cursos.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -46,6 +48,30 @@ public class CursosRepositoryImpl implements CursosRepository {
 		TypedQuery<Curso> query = em.createQuery(jpql, Curso.class);
 		query.setParameter(1, duracion);
 		return query.getResultList();
+	}
+
+	@Override
+	public void eliminarCursosNombre(String dato) {
+		EntityTransaction tx = em.getTransaction();
+		String jpql = "delete from Curso c where c.denominacion like ?1";
+		Query query = em.createQuery(jpql);
+		query.setParameter(1, "%"+dato+"%");
+		tx.begin();
+		query.executeUpdate();
+		tx.commit();
+	}
+
+	@Override
+	public void reducirPrecioCursos(int duracion, int porcentaje) {
+		EntityTransaction tx = em.getTransaction();
+		String jpql = "update Curso c set c.precio = c.precio * ((100-?1)/100) ";
+		jpql += "where c.duracion <?2";
+		Query query = em.createQuery(jpql);
+		query.setParameter(1, porcentaje);
+		query.setParameter(2, duracion);
+		tx.begin();
+		query.executeUpdate();	
+		tx.commit();
 	}
 
 }

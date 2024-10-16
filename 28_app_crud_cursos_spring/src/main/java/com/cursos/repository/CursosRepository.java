@@ -10,4 +10,6 @@ public interface CursosRepository {
 	void eliminarCurso(Curso curso);
 	void actualizarCurso(Curso curso);
 	List<Curso> cursosDuracion(int duracion);
+	void eliminarCursosNombre(String dato);
+	void reducirPrecioCursos(int duracion, int porcentaje);
 }

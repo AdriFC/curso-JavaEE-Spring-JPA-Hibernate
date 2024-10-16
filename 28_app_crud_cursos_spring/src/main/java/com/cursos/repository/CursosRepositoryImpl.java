@@ -1,7 +1,10 @@
 package com.cursos.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +38,14 @@ public class CursosRepositoryImpl implements CursosRepository {
 	@Override
 	public void actualizarCurso(Curso curso) {
 		em.merge(curso);
+	}
+
+	@Override
+	public List<Curso> cursosDuracion(int duracion) {
+		String jpql = "select c from Curso c where c.duracion<=?1";
+		TypedQuery<Curso> query = em.createQuery(jpql, Curso.class);
+		query.setParameter(1, duracion);
+		return query.getResultList();
 	}
 
 }

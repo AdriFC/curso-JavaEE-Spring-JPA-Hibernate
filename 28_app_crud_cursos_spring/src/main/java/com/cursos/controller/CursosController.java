@@ -1,5 +1,7 @@
 package com.cursos.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cursos.model.Curso;
 import com.cursos.service.CursosService;
+
+
 
 @Controller
 public class CursosController {
@@ -50,6 +54,13 @@ public class CursosController {
 			service.actualizarCurso(curso);
 		}
 		return "menu";
+	}
+	
+	@GetMapping("cursosDuracion")
+	public String cursosPorDuracion(@RequestParam("duracion") int duracion, HttpServletRequest request) {
+		List<Curso> cursos = service.cursosDuracionMaxima(duracion);
+		request.setAttribute("cursos", cursos);
+		return "listaCursos";
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.cursos.service;
 
+import java.util.List;
+
 import com.cursos.model.Curso;
 
 public interface CursosService {
@@ -8,5 +10,6 @@ public interface CursosService {
 	Curso buscarCurso(int idCurso);
 	void actualizarCurso(Curso curso);
 	void eliminarCurso(int idCurso);
+	List<Curso> cursosDuracionMaxima(int duracion);
 		
 }
